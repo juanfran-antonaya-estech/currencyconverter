@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Monedas">
+        <item>Euro</item>
+        <item>Rupia</item>
+        <item>Chapas</item>
+        <item>Creditos</item>
+        <item>Oro WOW</item>
+    </string-array>
+</resources>
