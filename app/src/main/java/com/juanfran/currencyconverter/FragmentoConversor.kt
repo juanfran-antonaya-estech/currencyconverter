@@ -10,6 +10,12 @@ import com.juanfran.currencyconverter.databinding.FragmentFragmentoConversorBind
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
+private val monedas = ArrayOf{
+    ArrayList{},
+    Array{},
+    Array{}
+}
+
 
 private lateinit var binding: FragmentFragmentoConversorBinding
 class FragmentoConversor : Fragment() {
@@ -20,5 +26,11 @@ class FragmentoConversor : Fragment() {
     ): View? {
         binding = FragmentFragmentoConversorBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 }
