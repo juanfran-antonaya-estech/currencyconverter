@@ -2,6 +2,7 @@ package com.juanfran.currencyconverter
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import com.juanfran.currencyconverter.databinding.FragmentFragmentoConversorBinding
+import java.util.stream.IntStream
+import java.util.stream.IntStream.range
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,23 +81,40 @@ class FragmentoConversor : Fragment() {
         }
 
         binding.fabSend.setOnClickListener{
-            val buildir = AlertDialog.Builder(this)
-            buildir.setTitle("Mensaje del sistema")
-            buildir.setMessage("¿Deseas enviar esta conversión?")
-            buildir.setNegativeButton("No",null)
-            buildir.setPositiveButton("Sí", DialogInterface.OnClickListener{ dialog, i ->
-                val conversion = binding.tvResult.text.toString()
-                val intent = Intent(this, EnvialCosas::class.java)
-                intent.action = Intent.ACTION_SEND
-                intent.putExtra("conversion", conversion)
-                intent.setType("text/plain")
-                startActivity(intent)
 
-            })
-            val dialog = buildir.create()
-            dialog.show()
         }
 
 
+
+
+    }
+
+    private fun getRelacion(): Double {
+        val origen = obtenerNumero(binding.spOrigen.selectedItem.toString())
+        val destino = obtenerNumero(binding.spDestino.selectedItem.toString())
+        val cantidad = binding.etInput.text.toString().toDouble()
+
+        return (origen * cantidad / destino)
+    }
+
+    private fun obtenerNumero(texto: String): Double {
+        for (i in range(0, moneas[0].size)) {
+            if (i == moneas[0][i]){
+                return moneas[0][1].toString().toDouble()
+            }
+        }
+
+        return 0.0
+    }
+
+    private fun obtenerDrawable(texto: String): Drawable? {
+        for (i in range(0, moneas[0].size)) {
+            if (i == moneas[0][i]){
+                return getResources().getDrawable(moneas[2][i].toString().toInt())
+            }
+        }
+
+
+        return null
     }
 }
