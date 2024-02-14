@@ -1,12 +1,10 @@
 package com.juanfran.currencyconverter
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.juanfran.currencyconverter.databinding.FragmentEnviarBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,34 +15,5 @@ import com.juanfran.currencyconverter.databinding.FragmentEnviarBinding
  * create an instance of this fragment.
  */
 class FragmentEnviar : Fragment() {
-    private lateinit var binding: FragmentEnviarBinding
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentEnviarBinding.inflate(layoutInflater)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val param1 = arguments?.getString("conversion")
-        binding.textView4.text = param1
-
-        binding.btEnviar.setOnClickListener{
-            val mail = binding.etEmail.text
-
-            val intent = Intent()
-            intent.action = Intent.ACTION_SEND
-            intent.setType("text/html")
-            intent.putExtra(Intent.EXTRA_EMAIL, mail)
-            intent.putExtra(Intent.EXTRA_SUBJECT, "La conversión")
-            intent.putExtra(Intent.EXTRA_TEXT, param1)
-            startActivity(intent)
-        }
-
-
-    }
 }
