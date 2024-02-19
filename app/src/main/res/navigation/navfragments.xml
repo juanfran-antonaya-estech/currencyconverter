@@ -10,7 +10,8 @@
         android:label="FragmentoConversor" >
         <action
             android:id="@+id/action_fragmentoConversor_to_fragmentEnviar"
-            app:destination="@id/fragmentEnviar" />
+            app:destination="@id/fragmentEnviar"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/fragmentEnviar"
