@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navfragments"
+    app:startDestination="@id/fragmentoConversor">
+    <fragment
+        android:id="@+id/fragmentoConversor"
+        android:name="com.juanfran.currencyconverter.FragmentoConversor"
+        android:label="FragmentoConversor" >
+        <action
+            android:id="@+id/action_fragmentoConversor_to_fragmentEnviar"
+            app:destination="@id/fragmentEnviar"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEnviar"
+        android:name="com.juanfran.currencyconverter.FragmentEnviar"
+        android:label="FragmentEnviar" />
+</navigation>
