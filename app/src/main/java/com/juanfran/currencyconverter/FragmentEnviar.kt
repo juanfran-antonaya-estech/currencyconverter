@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ShareCompat.IntentBuilder
 import com.juanfran.currencyconverter.databinding.FragmentEnviarBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,9 +35,16 @@ class FragmentEnviar : Fragment() {
 
         binding.btEnviar.setOnClickListener{
             val mail = binding.etEmail.text
-            val result = param1
 
-
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.setType("text/html")
+            intent.putExtra(Intent.EXTRA_EMAIL, mail)
+            intent.putExtra(Intent.EXTRA_SUBJECT, "La conversión")
+            intent.putExtra(Intent.EXTRA_TEXT, param1)
+            startActivity(intent)
         }
+
+
     }
 }
