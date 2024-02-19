@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 binding.ivDestino.setImageDrawable(obtenerDrawable(binding.spDestino.selectedItem.toString()))
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
-            // funcion llamada cuando no se selecciona nada del spinner
             }
         }
 
